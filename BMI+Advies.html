@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezond eten!</title>
+    <link rel="stylesheet" href="gzndeten.css">
+    
+</head>
+<h1 id="h1"> BMI + Advies </h1>
+<body>
+<div id="kzm">
+    <H3>keuze menu</H3>
+    <button class="btton" onclick="location.href='gezondeten.html'" type="button">
+         home page</button>
+         <div></div>
+    <button class="btton" onclick="location.href='pages/voorlichting.html'" type="button">
+         voorlichting</button>
+         <div></div>
+         <button class="btton" onclick="location.href='pages/leuketen.html'" type="button">
+         Waarom is eten leuk!</button>
+         <div></div>
+         <button class="btton" onclick="location.href='pages/rrecepten.html'" type="button">
+         recepten</button>
+         <div></div>
+         <button class="btton" onclick="location.href='pages/BMI+Advies.html'" type="button">
+         BMI + Advies</button>
+         <div></div>
+         <button class="btton" onclick="location.href='pages/vragenlijst.html'" type="button">
+         Vragenlijst</button>
+         <div></div>
+         <button class="btton" onclick="location.href='pages/spelletje.js'" type="button">
+         Spelletje</button>
+       
+
+</div>
+    
+<div id="tekstbox">
+    <h2></h2>
+    <div id="calc">
+        
+        <script type="text/javascript">
+            function computeBMI()
+            {
+                
+                var height=Number(document.getElementById("height").value);
+                var heightunits=document.getElementById("heightunits").value;
+                var weight=Number(document.getElementById("weight").value);
+                var weightunits=document.getElementById("weightunits").value;
+                var leeftijd=document.getElementById("leeftijd").value;
+                document.getElementById("leeftijd").innerText=Math.round(leeftijd);
+
+                if (heightunits=="inches") height*=2.54;
+                if (weightunits=="lb") weight/=2.20462;
+        
+                var BMI=weight/Math.pow(height,2)*10000;
+        
+                document.getElementById("output").innerText=Math.round(BMI*100)/100;
+        
+                var output =  Math.round(BMI*100)/100
+                if (output<18.5)
+                document.getElementById("comment").innerText = "Ondergewicht";
+              else   if (output>=18.5 && output<=25)
+                document.getElementById("comment").innerText = "Normaal gewicht";
+             else   if (output>=25 && output<=30)
+                document.getElementById("comment").innerText = "Overgewicht";
+             else   if (output>30)
+                document.getElementById("comment").innerText = "Obesitas";
+            }
+        </script>
+         </head>
+         <body>
+        <h1>BMI Calculator</h1>
+        <p id="h">lengte: <input class="invoer" type="text" id="height"/>
+            <select type="multiple" id="heightunits">
+                <option value="metres" selected="selected">centimeter</option>
+                <option value="inches">inches</option>
+            </select>
+             </p>
+        <p id="w">gewicht: <input class="invoer" type="text" id="weight"/>
+            <select type="multiple" id="weightunits">
+                <option value="kg" selected="selected">kg</option>
+                <option value="lb">pond</option>
+            </select>
+        </p>
+        <p id="L">leeftijd: <input class="invoer" type="text" id="leefijd"/>
+        </p>
+        <input id="btn" type="submit" value="bereken"   onclick="computeBMI();">
+        <h1>U BMI is: <span id="output">?</span></h1>
+        <h1> Uitslag: <span id="comment"> ?</span> </h1> 
+        <h1> leeftijd: <span id="leeftijd"> ?</span> </h1> 
+    </div>
+    
+</div>
+<div>
+    <div class="advies">Advies Ondergewicht <br> <br> Eet 'normaal' 3 keer per dag. Ontbijt goed. Lunch goed. Kook 's avonds lekker, vers en gezond. Las daarnaast extra eetmomenten in voor een gezond tussendoortje. Fruit, een boterham, dadels, vijgen, zuidvruchten of noten.</div>
+    <div class="advies">Advies Normaal gewicht <br> <br> Gezond gewicht, probeer op gewicht te blijven!</div>
+    <div class="advies">Advies Overgewicht <br> <br> Zorg voor goede voeding en ge meer bewegen,
+        en het aanpakken van problemen waardoor u slechter voor uzelf zorgt, zoals stress.</div>
+    <div class="advies">Advies Obesitas <br> <br> Ga minder grote porties eten, meer bewegen, en een heel belangrijk ding is stop met je calorien te drinken. Dus geen dranken waar veel suiker in zit. Voorbeelden van gezonde dranken zijn zwarte koffie en water.</div>
+</div>
+
+
+    
+</body>
+</html>
